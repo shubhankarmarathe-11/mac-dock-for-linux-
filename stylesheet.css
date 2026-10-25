@@ -1,0 +1,48 @@
+/* Floating glass-style dock */
+.macdock-container {
+  background-color: rgba(30, 30, 34, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 26px;
+  padding: 8px 12px 6px 12px;
+  spacing: 6px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.40);
+}
+
+.macdock-item {
+  spacing: 3px;
+  padding: 0 2px;
+}
+
+.macdock-button {
+  padding: 2px;
+  border-radius: 12px;
+  background-color: transparent;
+}
+
+.macdock-button:hover,
+.macdock-button:focus {
+  background-color: transparent;
+}
+
+/* Running-app indicator dot */
+.macdock-dot {
+  background-color: rgba(255, 255, 255, 0.85);
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+  margin-bottom: 2px;
+}
+
+.macdock-grid-icon {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* App name tooltip */
+.macdock-tooltip {
+  background-color: rgba(30, 30, 34, 0.85);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 11pt;
+}

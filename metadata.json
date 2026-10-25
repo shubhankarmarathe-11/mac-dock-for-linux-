@@ -1,0 +1,7 @@
+{
+  "uuid": "macdock@shubhankar",
+  "name": "Mac Dock",
+  "description": "A floating, macOS-style dock with icon magnification and running-app indicators.",
+  "shell-version": ["50"],
+  "version": 1
+}
