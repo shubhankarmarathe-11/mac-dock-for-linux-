@@ -48,7 +48,9 @@ export default class MacDockPreferences extends ExtensionPreferences {
         addSwitch(behavior, 'autohide', 'Auto-hide',
             'Slide the dock away when the pointer leaves it. Move to the bottom edge to bring it back.');
         addSwitch(behavior, 'show-in-overview', 'Show in Activities overview',
-            'Off: this dock is hidden while the overview or app grid is open.');
+            'Show this dock while the overview or app grid is open.');
+        addSwitch(behavior, 'hide-default-dash', "Hide GNOME's default dash in the overview",
+            'Stops the built-in dash from showing a second dock in the overview.');
 
         // Size and spacing
         const size = addGroup('Size and spacing');

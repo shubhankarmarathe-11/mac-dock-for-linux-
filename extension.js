@@ -76,6 +76,15 @@ export default class MacDockExtension extends Extension {
 
         this._connect(this._settings, 'changed', (_s, key) => this._onSettingChanged(key));
 
+        // GNOME's built-in dash in the overview: keep it hidden if requested
+        this._dashSaved = null;
+        this._syncingDash = false;
+        if (Main.overview.dash) {
+            this._connect(Main.overview.dash, 'notify::visible', () => this._syncDefaultDash());
+            this._connect(Main.overview.dash, 'notify::opacity', () => this._syncDefaultDash());
+        }
+        this._syncDefaultDash();
+
         this._applyStyle();
         this._rebuild();
         this._syncVisibility();
@@ -92,6 +101,10 @@ export default class MacDockExtension extends Extension {
         for (const [obj, id] of this._connections)
             obj.disconnect(id);
         this._connections = [];
+
+        // Give GNOME's own dash back
+        this._hideDefaultDash = false;
+        this._syncDefaultDash();
 
         this._hideTooltip();
 
@@ -124,6 +137,7 @@ export default class MacDockExtension extends Extension {
         this._showTooltips = s.get_boolean('show-tooltips');
         this._autohide = s.get_boolean('autohide');
         this._showInOverview = s.get_boolean('show-in-overview');
+        this._hideDefaultDash = s.get_boolean('hide-default-dash');
     }
 
     _onSettingChanged(key) {
@@ -149,7 +163,47 @@ export default class MacDockExtension extends Extension {
                 this._setAutoHidden(false);
         }
 
+        this._syncDefaultDash();
         this._syncVisibility();
+    }
+
+    // Hides GNOME's built-in overview dash. Several measures are combined so
+    // that it stays hidden even if the shell tries to show it again:
+    // hidden, zero height (no gap), clipped, transparent, not clickable.
+    _syncDefaultDash() {
+        const dash = Main.overview.dash;
+        if (!dash || this._syncingDash)
+            return;
+
+        this._syncingDash = true;
+        try {
+            if (this._hideDefaultDash) {
+                if (!this._dashSaved) {
+                    this._dashSaved = {
+                        opacity: dash.opacity,
+                        reactive: dash.reactive,
+                        clip: dash.clip_to_allocation,
+                    };
+                }
+                dash.clip_to_allocation = true;
+                dash.set_height(0);
+                dash.opacity = 0;
+                dash.reactive = false;
+                if (dash.visible)
+                    dash.hide();
+            } else if (this._dashSaved) {
+                const saved = this._dashSaved;
+                this._dashSaved = null;
+                dash.set_height(-1);
+                dash.clip_to_allocation = saved.clip;
+                dash.opacity = saved.opacity;
+                dash.reactive = saved.reactive;
+                if (!dash.visible)
+                    dash.show();
+            }
+        } finally {
+            this._syncingDash = false;
+        }
     }
 
     _applyStyle() {

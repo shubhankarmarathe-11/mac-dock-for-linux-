@@ -54,8 +54,13 @@
       <summary>Hide the dock when the pointer is away from it</summary>
     </key>
     <key name="show-in-overview" type="b">
-      <default>false</default>
+      <default>true</default>
       <summary>Keep this dock visible in the Activities overview</summary>
+    </key>
+
+    <key name="hide-default-dash" type="b">
+      <default>true</default>
+      <summary>Hide GNOME's built-in dash in the Activities overview</summary>
     </key>
 
   </schema>
