@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="macdock@shubhankar">
+  <schema id="org.gnome.shell.extensions.macdock" path="/org/gnome/shell/extensions/macdock/">
+
+    <key name="icon-size" type="i">
+      <range min="24" max="96"/>
+      <default>48</default>
+      <summary>Icon size in pixels</summary>
+    </key>
+    <key name="icon-spacing" type="i">
+      <range min="0" max="40"/>
+      <default>6</default>
+      <summary>Distance between icons in pixels</summary>
+    </key>
+    <key name="dock-padding" type="i">
+      <range min="0" max="60"/>
+      <default>12</default>
+      <summary>Extra space at the left and right ends (changes dock length)</summary>
+    </key>
+    <key name="bottom-margin" type="i">
+      <range min="0" max="80"/>
+      <default>10</default>
+      <summary>Gap between the dock and the bottom of the screen</summary>
+    </key>
+    <key name="corner-radius" type="i">
+      <range min="0" max="40"/>
+      <default>26</default>
+      <summary>Corner radius of the dock background</summary>
+    </key>
+    <key name="background-opacity" type="d">
+      <range min="0.0" max="1.0"/>
+      <default>0.55</default>
+      <summary>Opacity of the dock background</summary>
+    </key>
+    <key name="magnification-enabled" type="b">
+      <default>true</default>
+      <summary>Magnify icons near the pointer</summary>
+    </key>
+    <key name="magnification-scale" type="d">
+      <range min="1.0" max="2.0"/>
+      <default>1.5</default>
+      <summary>Maximum magnification factor</summary>
+    </key>
+    <key name="show-running-indicator" type="b">
+      <default>true</default>
+      <summary>Show a dot under running apps</summary>
+    </key>
+    <key name="show-tooltips" type="b">
+      <default>true</default>
+      <summary>Show app name when hovering an icon</summary>
+    </key>
+    <key name="autohide" type="b">
+      <default>false</default>
+      <summary>Hide the dock when the pointer is away from it</summary>
+    </key>
+    <key name="show-in-overview" type="b">
+      <default>false</default>
+      <summary>Keep this dock visible in the Activities overview</summary>
+    </key>
+
+  </schema>
+</schemalist>

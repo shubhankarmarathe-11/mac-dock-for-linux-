@@ -1,7 +1,8 @@
 {
   "uuid": "macdock@shubhankar",
   "name": "Mac Dock",
-  "description": "A floating, macOS-style dock with icon magnification and running-app indicators.",
+  "description": "A floating, macOS-style dock with icon magnification, auto-hide and a settings page.",
   "shell-version": ["50"],
-  "version": 1
+  "settings-schema": "org.gnome.shell.extensions.macdock",
+  "version": 2
 }
