@@ -47,6 +47,10 @@ export default class MacDockPreferences extends ExtensionPreferences {
         const behavior = addGroup('Behavior');
         addSwitch(behavior, 'autohide', 'Auto-hide',
             'Slide the dock away when the pointer leaves it. Move to the bottom edge to bring it back.');
+        addSwitch(behavior, 'minimize-on-click', 'Click again to minimize',
+            "Click an app's icon to open it. Click again while it is in front to minimize it.");
+        addSwitch(behavior, 'hover-preview', 'Window preview on hover',
+            "Show thumbnails of the app's open windows when you hover its icon.");
         addSwitch(behavior, 'show-in-overview', 'Show in Activities overview',
             'Show this dock while the overview or app grid is open.');
         addSwitch(behavior, 'hide-default-dash', "Hide GNOME's default dash in the overview",

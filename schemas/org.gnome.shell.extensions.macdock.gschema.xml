@@ -63,5 +63,14 @@
       <summary>Hide GNOME's built-in dash in the Activities overview</summary>
     </key>
 
+    <key name="minimize-on-click" type="b">
+      <default>true</default>
+      <summary>Clicking the icon of the app that is in front minimizes it</summary>
+    </key>
+    <key name="hover-preview" type="b">
+      <default>true</default>
+      <summary>Show window previews when hovering an app icon</summary>
+    </key>
+
   </schema>
 </schemalist>

@@ -4,5 +4,5 @@
   "description": "A floating, macOS-style dock with icon magnification, auto-hide and a settings page.",
   "shell-version": ["50"],
   "settings-schema": "org.gnome.shell.extensions.macdock",
-  "version": 2
+  "version": 5
 }
